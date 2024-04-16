@@ -1,7 +1,12 @@
-# Vue 3 + Vite
+# 新楓之谷 六轉碎片計算器
+由vue3 + vite 撰寫  
+計算六轉技能進度與計算累積打多少碎片
+## Links
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+網頁地址 [六轉碎片計算器](https://johnny-fu.github.io/mapleStoryHexa/hexaSkill.html).
+## 後續新增技能
+在 skill.vue 底下  
+const skill_core = ref([0])  
+const proficient_core = ref([0])  
+const strengthen_core = ref([0, 0, 0, 0])  
+於陣列中新增 0 即可加該技能數量
