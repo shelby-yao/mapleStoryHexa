@@ -1,71 +1,83 @@
 <template>
-    <div>
-        <div v-for="(v, i) in skill_core" :key="i">
-            <div class="p-2">
-                技能核心{{ i + 1 }}:
-                <div class="d-flex">
-                    <div class="col-2">
-                        <input type="range" class="form-range p-2" min="0" max="30" step="1" id="skill_core"
-                            v-model="skill_core[i]">
+    <div class="container">
+        <img class="img-thumbnail mb-3" src="../../../assets/new.png">
+        <div class="row">
+            <div class="col-12 col-md-7 col-lg-7 border-end">
+                <div v-for="(v, i) in skill_core" :key="i" class=" mb-1">
+                    <div class="p-2">
+                        <div class="mb-2">技能核心{{ i + 1 }}:</div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-5 mb-2">
+                                <input type="range" class="form-range p-2" min="0" max="30" step="1" id="skill_core"
+                                    v-model="skill_core[i]">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-7">
+                                <input type="number" class="w-25" v-model="skill_core[i]" />
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <input type="number" v-model="skill_core[i]" />
+                </div>
+                <div v-for="(v, i) in proficient_core" :key="i" class="mb-1">
+                    <div class="p-2">
+                        <div class="mb-2">精通核心{{ i + 1 }}:</div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-5 mb-2">
+                                <input type="range" class="form-range p-2" min="0" max="30" step="1"
+                                    id="proficient_core" v-model="proficient_core[i]">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-7">
+                                <input type="number" class="w-25" v-model="proficient_core[i]" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-for="(v, i) in strengthen_core" :key="i" class="mb-1">
+                    <div class="p-2">
+                        <div class="mb-2"> 強化核心{{ i + 1 }}:</div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-5 mb-2">
+                                <input type="range" class="form-range p-2" min="0" max="30" step="1"
+                                    id="strengthen_core" v-model="strengthen_core[i]">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-7">
+                                <input type="number" class="w-25" v-model="strengthen_core[i]" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div v-for="(v, i) in proficient_core" :key="i">
-            <div class="p-2">
-                精通核心{{ i + 1 }}:
-                <div class="d-flex">
-                    <div class="col-2">
-                        <input type="range" class="form-range p-2" min="0" max="30" step="1" id="proficient_core"
-                            v-model="proficient_core[i]">
+            <div class="col-12 col-md-5 col-lg-5">
+                <div class="p-3">
+                    <div class="mb-2">
+                        <div>
+                            <img class="img" src="../../../assets/soul.png">靈魂愛爾達 : {{ soul }}
+                        </div>
                     </div>
                     <div>
-                        <input type="number" v-model="proficient_core[i]" />
+                        <img class="img" src="../../../assets/fragment.png">靈魂愛爾達碎片 : {{ fragments }}
                     </div>
                 </div>
-            </div>
-        </div>
-        <div v-for="(v, i) in strengthen_core" :key="i">
-            <div class="p-2">
-                強化核心{{ i + 1 }}:
-                <div class="d-flex">
-                    <div class="col-2">
-                        <input type="range" class="form-range p-2" min="0" max="30" step="1" id="strengthen_core"
-                            v-model="strengthen_core[i]">
+                <div class="p-3">
+                    <div class="d-flex text-nowrap">
+                        <!-- <div class="col"> -->
+                            背包碎片 : &nbsp;
+                        <!-- </div> -->
+                        <!-- <div class="col"> -->
+                            <input type="number" class="w-25" v-model="bag_fragment" />
+                        <!-- </div> -->
                     </div>
-                    <div>
-                        <input type="number" v-model="strengthen_core[i]" />
+                </div>
+                <div class="p-3">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-2 text-nowrap">碎片進度 : {{ roundTo(progess, 2) }}%</div>
+                        <div class="col-12 col-lg-6 text-nowrap">只打每日還有 : {{ Math.ceil(remaining_daily) }}天</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="p-3">
-            <div class="d-flex">
-                <div class="col-2">靈魂愛爾達 : {{ soul }}</div>
-                <div class="col-2">靈魂愛爾達碎片 : {{ fragments }}</div>
-                
-            </div>
-        </div>
-        <div class="p-3">
-            <div class="d-flex">
-                <div class="col-2">
-                        背包內靈魂愛爾達碎片 :
-                    </div>
-                    <div class="col">
-                        <input type="number" v-model="bag_fragment" />
-                    </div>
-            </div>
-        </div>
-        <div class="p-3">
-            <div class="d-flex">
-                <div class="col-2">碎片進度 : {{ roundTo(progess, 2) }}%</div>
-                <div class="col">只打每日還有 : {{ Math.ceil( remaining_daily ) }}天</div>
-            </div>
-        </div>
+
+
 
     </div>
 </template>
@@ -137,14 +149,14 @@ function countStrengthen(x) {
     }
 }
 
-function countDailyAndProgess(){
+function countDailyAndProgess() {
     var temp = 0;
-    if(bag_fragment.value>0){
+    if (bag_fragment.value > 0) {
         temp = bag_fragment.value
     }
-    remaining_daily.value = (all_fragment - (fragments.value + temp)) /12
+    remaining_daily.value = (all_fragment - (fragments.value + temp)) / 12
     progess.value = (fragments.value + temp) / all_fragment * 100
-    if(progess.value >100){
+    if (progess.value > 100) {
         progess.value = 100
     }
 }
@@ -172,7 +184,7 @@ watch([skill_core.value, proficient_core.value, strengthen_core.value], async (n
     count()
     countDailyAndProgess()
 })
-watch(bag_fragment,()=>{
+watch(bag_fragment, () => {
     countDailyAndProgess()
 })
 onMounted(() => {
@@ -181,6 +193,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
