@@ -4,7 +4,8 @@
 計算六轉技能進度與計算累積打多少碎片
 ## Links
 
-網頁地址 [六轉碎片計算器](https://johnny-fu.github.io/mapleStoryHexa/hexaSkill.html).
+網頁地址 [六轉碎片計算器](https://shelby-yao.github.io/mapleStoryHexa/hexaSkill.html).
+
 ## 後續新增技能
 在 skill.vue 底下  
 const skill_core = ref([0])  
