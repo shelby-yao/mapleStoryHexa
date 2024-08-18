@@ -92,7 +92,7 @@ const strengthen_core_fragments = [75, 23, 27, 30, 34, 38, 42, 45, 49, 150, 60, 
 const strengthen_core_soul = [4, 1, 1, 1, 2, 2, 2, 3, 3, 8, 3, 3, 3, 3, 3, 3, 3, 3, 4, 12, 4, 4, 4, 4, 4, 5, 5, 5, 6, 15]
 
 const skill_core = ref([0])
-const proficient_core = ref([0])
+const proficient_core = ref([0, 0])
 const strengthen_core = ref([0, 0, 0, 0])
 const fragments = ref(0)
 const soul = ref(0)
